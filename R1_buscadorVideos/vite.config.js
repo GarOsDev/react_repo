@@ -9,6 +9,6 @@ export default defineConfig({
       usePolling: true, // Esta línea fuerza a Vite a revisar cambios de archivos de manera efectiva en WSL
     },
     host: true, // Esto permite que Vite use la red local
-    port: 5177,
+    port: 5181,
    }, // Puedes cambiar el puerto si es necesario
 })
