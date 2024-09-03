@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Reproductor } from "./Reproductor";
 import { Resultados } from "./Resultados";
 
 export function Body() {
@@ -29,13 +28,7 @@ export function Body() {
             </div>
 
             <div className="multimedia">
-                <div className="reproductor">
-                    < Reproductor />
-                </div>
-
-                <div className="resultados">
                     <Resultados resultado={texto}/>
-                </div>
             </div>
 
         </>

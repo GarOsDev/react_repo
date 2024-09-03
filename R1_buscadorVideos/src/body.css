@@ -19,9 +19,85 @@
     margin: 0 auto;
     background-color: #888;
     padding: 20px;
+    border-radius: 20px;
+    border: 5px solid teal;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
     gap: 10px;
+}
+
+.videosEncontrados > h2{
+    color: #fff;
+    font-size: 30px;
+    font-family: system-ui;
+    background-color: #cb4335;
+    margin: 10px 0;
+    border: 3px solid black;
+    text-align: center;
+}
+
+
+.reproductorResultados{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.reproductor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-family: system-ui;
+    font-size: 20px;
+    width: 50%;
+    background-color: royalblue;
+    padding: 10px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+}
+.botonCerrar{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.listaResultados{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 50%;
+    margin: 0 auto;
+    list-style: none;
+    font-family: system-ui;
+}
+.listaResultados > li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: steelblue;
+    padding: 15px;
+    border: 3px solid tomato;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+}
+.listaResultados > li > h3{
+    color: #fff;
+}
+.listaResultados > li > img{
+    border-radius: 10px;
+    border: 3px solid #fff;
 }
