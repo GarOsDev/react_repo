@@ -1,0 +1,126 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 80%;
+  margin: 0 auto;
+  background-color: #343131;
+}
+
+#root{
+  width: 100%;
+  margin: 0 auto;
+  background-color: #424242;
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+}
+.contenedor > h1{
+  color: #fff;
+  font-family: system-ui;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+
+.selector{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+
+  width: 50%;
+}
+
+.Origen{
+  background-color: #343131;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #48CFCB;
+  text-align: center;
+}
+.Origen > h3{
+  color: #fff;
+  font-size: 25px;
+  font-family: system-ui;
+}
+.Origen > select{
+  margin-top: 10px;
+  padding: 20px 25px;
+  font-family: system-ui;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.Destino{
+  background-color: #343131;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #F05A7E;
+  text-align: center;
+}
+.Destino > h3{
+  color: #fff;
+  font-size: 25px;
+  font-family: system-ui;
+}
+.Destino > select{
+  margin-top: 10px;
+  padding: 20px 25px;
+  font-family: system-ui;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.cantidadOrigen{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  background-color: #CEDF9F;
+  padding: 20px;
+  border-radius: 15px;
+}
+.cuadroCantidad{
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 20px;
+}
+.botonConvertir{
+  font-size: 15px;
+  padding: 10px;
+  background-color: #A1D6B2;
+}
+
+.resultado{
+  background-color: #fff;
+  padding: 20px 200px;
+  font-family: system-ui;
+  border-radius: 5px;
+  border: 3px solid tomato;
+}
+
+.resaltado{
+  color: red;
+}
