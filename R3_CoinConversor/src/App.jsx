@@ -10,32 +10,38 @@ function App() {
   const [quantity, setQuantity] = useState("");
   const [verifier, setVerifier] = useState(false);
   const [currencies, setCurrencies] = useState([]);
-  const [finalResult, setResult] = useState(0);
+  const [finalResult, setResult] = useState(null);
 
   useEffect(() => {
+
     async function obtenerNombresDivisas() {
-      const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
-        params: { base: "USD" },
-        headers: {
-          'x-rapidapi-key': '2cc504gt54dw8f254', //Modificada por seguridad
-          'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
-        }
-      })
-      setDivisa(axiosResponse.data.result)
 
+      try {
+        const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
+          params: { base: "USD" },
+          headers: {
+            'x-rapidapi-key': 'apikey', //Modificada por seguridad
+            'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
+          }
+        })
+        setDivisa(axiosResponse.data.result)
+      } catch (error) {
+        console.error("Error al acceder a los datos:", error)
+      }
     }
-    //obtenerNombresDivisas();
-  }, [])
 
+    obtenerNombresDivisas();
+
+  }, [])
 
   console.log(divisas);
 
   const handleOrigin = (e) => {
-    setResult(0);
+    setResult(null);
     setOrigin(e.target.value);
   }
   const handleDestiny = (e) => {
-    setResult(0);
+    setResult(null);
     setDestiny(e.target.value);
   }
   const handleQuantity = (e) => {
@@ -47,17 +53,24 @@ function App() {
     console.log(quantity);
     if (origin.length == 3 && destiny.length == 3) {
       if (/^\d+(\.\d+)?$/.test(quantity)) {
+
         async function obtenerConversion() {
-          const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
-            params: { base: origin },
-            headers: {
-              'x-rapidapi-key': '2cc5021f2cmsh928421a24af316fp188f44jsn69ce79c8f254',
-              'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
-            }
-          })
-          setCurrencies(axiosResponse.data.result)
+
+          try {
+            const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
+              params: { base: origin },
+              headers: {
+                'x-rapidapi-key': 'apikey',
+                'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
+              }
+            })
+            setCurrencies(axiosResponse.data.result)
+          } catch (error) {
+            console.error("Error al acceder a los datos:", error)
+          }
         }
         obtenerConversion();
+
       } else {
         setVerifier(true);
       }
@@ -94,9 +107,9 @@ function App() {
           <div className='Origen'>
             <h3>Moneda Origen</h3>
             <select onChange={handleOrigin}>
-              <option selected>Seleccione Divisa</option>
+              <option>Seleccione Divisa</option>
               {
-                Object.keys(divisas).map((divisa) =>(
+                Object.keys(divisas).map((divisa) => (
                   <option value={divisa}>{divisa}</option>
                 ))
               }
@@ -105,9 +118,9 @@ function App() {
           <div className='Destino'>
             <h3>Moneda Destino</h3>
             <select onChange={handleDestiny}>
-              <option selected>Seleccione Divisa</option>
+              <option>Seleccione Divisa</option>
               {
-                Object.keys(divisas).map((divisa) =>(
+                Object.keys(divisas).map((divisa) => (
                   <option value={divisa}>{divisa}</option>
                 ))
               }
@@ -122,7 +135,7 @@ function App() {
 
         <div className='resultado'>
           {verifier && <h3>Procure rellenar/seleccionar todos los campos</h3>}
-          {finalResult != 0 ? <h3>{quantity}<span className='resaltado'>{origin}</span> son {finalResult}<span className='resaltado'>{destiny}</span></h3> : <h3>Su conversión aparacerá aquí</h3>}
+          {finalResult != null ? <h3>{quantity}<span className='resaltado'>{origin}</span> son {finalResult}<span className='resaltado'>{destiny}</span></h3> : <h3>Su conversión aparacerá aquí</h3>}
         </div>
 
       </div>
