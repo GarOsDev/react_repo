@@ -20,7 +20,7 @@ function App() {
         const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
           params: { base: "USD" },
           headers: {
-            'x-rapidapi-key': 'apikey', //Modificada por seguridad
+            'x-rapidapi-key': 'apiKey', //Modificada por seguridad
             'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
           }
         })
@@ -60,7 +60,7 @@ function App() {
             const axiosResponse = await axios.get('https://currency-converter-pro1.p.rapidapi.com/latest-rates', {
               params: { base: origin },
               headers: {
-                'x-rapidapi-key': 'apikey',
+                'x-rapidapi-key': 'apiKey',
                 'x-rapidapi-host': 'currency-converter-pro1.p.rapidapi.com'
               }
             })
